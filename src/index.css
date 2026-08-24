@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #172033;
+    background-color: #F5F7FA;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Barlow', 'Inter', sans-serif;
+  }
+
+  .font-mono-tech {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Engineering Technical Pattern Utilities */
+.blueprint-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(9, 41, 91, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 41, 91, 0.05) 1px, transparent 1px);
+}
+
+.blueprint-grid-dark {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(244, 196, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 196, 0, 0.08) 1px, transparent 1px);
+}
+
+.blueprint-dots {
+  background-image: radial-gradient(rgba(9, 41, 91, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.blueprint-dots-dark {
+  background-image: radial-gradient(rgba(244, 196, 0, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.industrial-stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #F4C400,
+    #F4C400 12px,
+    #061C3D 12px,
+    #061C3D 24px
+  );
+}
+
+.industrial-stripe-subtle {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(244, 196, 0, 0.2),
+    rgba(244, 196, 0, 0.2) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+/* Custom scrollbars for engineering tables/panels */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8EDF3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #09295B;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #123D78;
+}
+
