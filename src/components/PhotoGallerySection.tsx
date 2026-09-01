@@ -23,10 +23,6 @@ export const PhotoGallerySection: React.FC<PhotoGalleryProps> = ({ onOpenQuoteMo
 
   return (
     <section id="gallery" className="py-20 lg:py-28 bg-[#00183F] text-white relative overflow-hidden border-b border-[#002D72]">
-      {/* Background blueprint patterns */}
-      <div className="absolute inset-0 blueprint-grid-dark opacity-15" />
-      <div className="absolute top-0 right-0 w-96 h-96 border border-[#F4C400]/10 rounded-full pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

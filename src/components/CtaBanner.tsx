@@ -11,9 +11,6 @@ export const CtaBanner: React.FC<CtaProps> = ({ onOpenQuoteModal }) => {
       {/* Industrial Hazard Stripe Accent Bar Top & Bottom */}
       <div className="absolute top-0 left-0 right-0 h-1.5 industrial-stripe" />
       <div className="absolute bottom-0 left-0 right-0 h-1.5 industrial-stripe" />
-      
-      {/* Subtle blueprint grid overlay */}
-      <div className="absolute inset-0 blueprint-grid-dark opacity-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         

@@ -4,28 +4,23 @@ import { HRCLogo } from './HRCLogo';
 
 interface FooterProps {
   onOpenQuoteModal: () => void;
+  onOpenGmailHub?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenQuoteModal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenQuoteModal, onOpenGmailHub }) => {
   return (
     <footer className="bg-[#002D72] text-white border-t-4 border-[#F4C400] relative overflow-hidden font-sans">
-      {/* Background blueprint details */}
-      <div className="absolute inset-0 blueprint-grid-dark opacity-10 pointer-events-none" />
-
       {/* TOP: Dedicated Contact Banner Card matching Footer hrc.png */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6 relative z-10">
         <div className="relative bg-[#001F52] border-2 border-[#F4C400] rounded-2xl p-6 sm:p-8 shadow-2xl overflow-hidden mb-12">
-          {/* Yellow Arc Styling on edges matching Footer hrc.png */}
-          <div className="absolute -top-12 -left-12 w-32 h-32 rounded-full border-4 border-[#F4C400] opacity-40 pointer-events-none" />
-          <div className="absolute -bottom-12 -right-12 w-32 h-32 rounded-full border-4 border-[#F4C400] opacity-40 pointer-events-none" />
           <div className="absolute top-0 right-1/4 w-24 h-1 bg-[#F4C400]" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center divide-y md:divide-y-0 md:divide-x divide-[#123D78]">
             
             {/* Block 1: Plant Site Address matching Footer hrc.png */}
             <div className="flex items-start gap-4 pr-4">
-              <div className="w-12 h-12 rounded-full bg-[#002D72] border-2 border-[#F4C400] flex items-center justify-center shrink-0 shadow-md">
-                <MapPin className="w-6 h-6 text-[#F4C400]" />
+              <div className="w-11 h-11 rounded-xs bg-[#002D72] border-2 border-[#F4C400] flex items-center justify-center shrink-0 shadow-md">
+                <MapPin className="w-5 h-5 text-[#F4C400]" />
               </div>
               <div>
                 <span className="text-[11px] font-black font-mono-tech uppercase text-[#F4C400] tracking-wider block mb-1">
@@ -39,13 +34,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuoteModal }) => {
 
             {/* Block 2: Email matching Footer hrc.png */}
             <div className="flex items-start gap-4 pt-6 md:pt-0 md:px-6">
-              <div className="w-12 h-12 rounded-full bg-[#002D72] border-2 border-[#F4C400] flex items-center justify-center shrink-0 shadow-md">
-                <Mail className="w-6 h-6 text-[#F4C400]" />
+              <div className="w-11 h-11 rounded-xs bg-[#002D72] border-2 border-[#F4C400] flex items-center justify-center shrink-0 shadow-md">
+                <Mail className="w-5 h-5 text-[#F4C400]" />
               </div>
               <div>
-                <span className="text-[11px] font-black font-mono-tech uppercase text-[#F4C400] tracking-wider block mb-1">
-                  OFFICIAL EMAIL:
-                </span>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[11px] font-black font-mono-tech uppercase text-[#F4C400] tracking-wider block">
+                    OFFICIAL EMAIL:
+                  </span>
+                  {onOpenGmailHub && (
+                    <button
+                      onClick={onOpenGmailHub}
+                      className="text-[10px] font-mono-tech font-bold bg-[#EA4335] hover:bg-[#D93025] text-white px-2 py-0.5 rounded-xs transition-colors cursor-pointer"
+                    >
+                      Gmail Hub
+                    </button>
+                  )}
+                </div>
                 <a
                   href="mailto:hassanreadymix@gmail.com"
                   className="text-xs sm:text-sm font-bold text-white hover:text-[#F4C400] transition-colors block"
@@ -63,8 +68,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuoteModal }) => {
 
             {/* Block 3: Contact Phones matching Footer hrc.png */}
             <div className="flex items-start gap-4 pt-6 md:pt-0 md:pl-6">
-              <div className="w-12 h-12 rounded-full bg-[#002D72] border-2 border-[#F4C400] flex items-center justify-center shrink-0 shadow-md">
-                <Phone className="w-6 h-6 text-[#F4C400]" />
+              <div className="w-11 h-11 rounded-xs bg-[#002D72] border-2 border-[#F4C400] flex items-center justify-center shrink-0 shadow-md">
+                <Phone className="w-5 h-5 text-[#F4C400]" />
               </div>
               <div>
                 <span className="text-[11px] font-black font-mono-tech uppercase text-[#F4C400] tracking-wider block mb-1">

@@ -63,10 +63,6 @@ export const WhyChooseUs: React.FC = () => {
 
   return (
     <section className="py-20 lg:py-28 bg-[#001F52] text-white relative overflow-hidden border-b border-[#0A3E8C]">
-      {/* Subtle diagonal engineering lines in background */}
-      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #F4C400 0, #F4C400 2px, transparent 0, transparent 40px)' }} />
-      <div className="absolute top-0 right-0 w-80 h-80 blueprint-dots-dark opacity-30" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

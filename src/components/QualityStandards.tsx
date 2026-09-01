@@ -58,46 +58,43 @@ export const QualityStandards: React.FC = () => {
                 </h3>
               </div>
 
-              {/* 3 Circular Seal Badges */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 text-center">
+              {/* 3 Modern Quality Badges */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 
                 {/* Badge 1: ASTM C94 */}
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-full border-4 border-[#F4C400] bg-[#002D72] flex flex-col items-center justify-center p-2 shadow-lg relative">
-                    <div className="w-20 h-20 rounded-full border border-dashed border-[#F4C400] flex flex-col items-center justify-center">
-                      <ShieldCheck className="w-6 h-6 text-[#F4C400] mb-0.5" />
-                      <span className="text-[9px] font-black uppercase text-white font-mono-tech">ASTM</span>
-                      <span className="text-[8px] font-bold text-[#F4C400]">C94 SPEC</span>
-                    </div>
+                <div className="bg-[#002D72] border-2 border-[#F4C400] p-4 rounded-xs text-center flex flex-col items-center justify-between shadow-md">
+                  <div className="w-10 h-10 rounded-xs bg-[#001F52] border border-[#F4C400]/40 flex items-center justify-center mb-2">
+                    <ShieldCheck className="w-5 h-5 text-[#F4C400]" />
                   </div>
-                  <span className="text-xs font-bold text-slate-200 uppercase mt-3">ASTM C94</span>
-                  <span className="text-[10px] text-slate-400">Ready-Mix Standard</span>
+                  <div>
+                    <span className="text-xs font-black uppercase text-[#F4C400] font-mono-tech block">ASTM C94</span>
+                    <span className="text-[11px] font-bold text-white uppercase block mt-0.5">Ready-Mix Standard</span>
+                    <span className="text-[9px] text-slate-300 font-mono-tech mt-1 block">Batched & Certified</span>
+                  </div>
                 </div>
 
                 {/* Badge 2: Compressive Strength */}
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-full border-4 border-white bg-[#002D72] flex flex-col items-center justify-center p-2 shadow-lg relative">
-                    <div className="w-20 h-20 rounded-full border border-dashed border-white/60 flex flex-col items-center justify-center">
-                      <Award className="w-6 h-6 text-[#F4C400] mb-0.5" />
-                      <span className="text-[9px] font-black uppercase text-white font-mono-tech">STRENGTH</span>
-                      <span className="text-[8px] font-bold text-white">TESTED</span>
-                    </div>
+                <div className="bg-[#002D72] border-2 border-white/60 p-4 rounded-xs text-center flex flex-col items-center justify-between shadow-md">
+                  <div className="w-10 h-10 rounded-xs bg-[#001F52] border border-white/40 flex items-center justify-center mb-2">
+                    <Award className="w-5 h-5 text-[#F4C400]" />
                   </div>
-                  <span className="text-xs font-bold text-slate-200 uppercase mt-3">ASTM C39</span>
-                  <span className="text-[10px] text-slate-400">28-Day Strength Lab</span>
+                  <div>
+                    <span className="text-xs font-black uppercase text-white font-mono-tech block">ASTM C39</span>
+                    <span className="text-[11px] font-bold text-white uppercase block mt-0.5">Hydraulic Crushing</span>
+                    <span className="text-[9px] text-slate-300 font-mono-tech mt-1 block">7 & 28 Day Lab Report</span>
+                  </div>
                 </div>
 
                 {/* Badge 3: ISO 9001 */}
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-full border-4 border-[#C92323] bg-[#002D72] flex flex-col items-center justify-center p-2 shadow-lg relative">
-                    <div className="w-20 h-20 rounded-full border border-dashed border-[#C92323] flex flex-col items-center justify-center">
-                      <FileCheck className="w-6 h-6 text-[#F4C400] mb-0.5" />
-                      <span className="text-[9px] font-black uppercase text-white font-mono-tech">ISO</span>
-                      <span className="text-[8px] font-bold text-[#C92323]">9001:2015</span>
-                    </div>
+                <div className="bg-[#002D72] border-2 border-[#C92323] p-4 rounded-xs text-center flex flex-col items-center justify-between shadow-md">
+                  <div className="w-10 h-10 rounded-xs bg-[#001F52] border border-[#C92323]/50 flex items-center justify-center mb-2">
+                    <FileCheck className="w-5 h-5 text-[#F4C400]" />
                   </div>
-                  <span className="text-xs font-bold text-slate-200 uppercase mt-3">ISO 9001</span>
-                  <span className="text-[10px] text-slate-400">Quality Management</span>
+                  <div>
+                    <span className="text-xs font-black uppercase text-[#C92323] font-mono-tech block">ISO 9001:2015</span>
+                    <span className="text-[11px] font-bold text-white uppercase block mt-0.5">Quality Assured</span>
+                    <span className="text-[9px] text-slate-300 font-mono-tech mt-1 block">Standard Operations</span>
+                  </div>
                 </div>
 
               </div>

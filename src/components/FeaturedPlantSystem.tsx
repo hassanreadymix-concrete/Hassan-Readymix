@@ -23,11 +23,6 @@ export const FeaturedPlantSystem: React.FC<FeaturedProps> = ({ onOpenQuoteModal 
 
   return (
     <section id="batching-system" className="py-20 lg:py-28 bg-[#00183F] text-white relative overflow-hidden border-b border-[#002D72]">
-      {/* Background blueprint elements */}
-      <div className="absolute inset-0 blueprint-grid-dark opacity-15" />
-      <div className="absolute -top-20 -left-20 w-80 h-80 border border-[#F4C400]/10 rounded-full" />
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 border border-[#38BDF8]/10 rounded-full" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

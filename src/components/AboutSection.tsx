@@ -37,9 +37,6 @@ export const AboutSection: React.FC<AboutProps> = ({ onOpenQuoteModal }) => {
 
   return (
     <section id="about" className="py-20 lg:py-28 bg-white relative overflow-hidden border-b border-[#E8EDF3]">
-      {/* Blueprint grid accent */}
-      <div className="absolute top-0 right-0 w-1/3 h-full blueprint-dots opacity-40 pointer-events-none" />
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           

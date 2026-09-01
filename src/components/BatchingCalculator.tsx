@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Calculator, ArrowRight, CheckCircle, Sliders, HardHat, Truck, Layers, Zap } from 'lucide-react';
+import { Calculator, ArrowRight, CheckCircle, Sliders, HardHat, Truck, Layers, Zap, Mail } from 'lucide-react';
 
 interface CalculatorProps {
   onTransferToQuote: (details: { model: string; dailyVolume: number; plantSpecs: string }) => void;
+  onOpenGmailHub?: (recipient?: string, subject?: string, grade?: string, volume?: string) => void;
 }
 
-export const BatchingCalculator: React.FC<CalculatorProps> = ({ onTransferToQuote }) => {
+export const BatchingCalculator: React.FC<CalculatorProps> = ({ onTransferToQuote, onOpenGmailHub }) => {
   const [dailyVolume, setDailyVolume] = useState<number>(800);
   const [operatingHours, setOperatingHours] = useState<number>(10);
   const [projectType, setProjectType] = useState<string>('Commercial High-Rise');
@@ -60,9 +61,6 @@ export const BatchingCalculator: React.FC<CalculatorProps> = ({ onTransferToQuot
 
   return (
     <section id="calculator" className="py-20 lg:py-28 bg-white border-b border-[#E8EDF3] relative overflow-hidden">
-      {/* Blueprint decorative pattern */}
-      <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -264,6 +262,23 @@ export const BatchingCalculator: React.FC<CalculatorProps> = ({ onTransferToQuot
                 <span>Transfer Sizing To Quotation Inquiry</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
+
+              {onOpenGmailHub && (
+                <button
+                  onClick={() =>
+                    onOpenGmailHub(
+                      'hassanreadymix@gmail.com',
+                      `Concrete Volume Calculation - ${dailyVolume} m³ (${projectType})`,
+                      `Concrete for ${projectType}`,
+                      dailyVolume.toString()
+                    )
+                  }
+                  className="w-full bg-[#EA4335] hover:bg-[#D93025] text-white py-3 text-center font-bold uppercase tracking-wider text-xs rounded-xs shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer border border-[#EA4335]"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Email Official Quotation via Gmail</span>
+                </button>
+              )}
 
               <div className="grid grid-cols-2 gap-2">
                 <a

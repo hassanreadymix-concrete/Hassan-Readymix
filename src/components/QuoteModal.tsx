@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, CheckCircle2, Phone, Building2 } from 'lucide-react';
+import { X, Send, CheckCircle2, Phone, Building2, Mail } from 'lucide-react';
 import { QuoteFormData } from '../types';
 
 interface QuoteModalProps {
@@ -7,6 +7,7 @@ interface QuoteModalProps {
   onClose: () => void;
   prefillProduct?: string;
   prefillMessage?: string;
+  onOpenGmailHub?: (recipient?: string, subject?: string, grade?: string) => void;
 }
 
 export const QuoteModal: React.FC<QuoteModalProps> = ({
@@ -14,6 +15,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   onClose,
   prefillProduct,
   prefillMessage,
+  onOpenGmailHub,
 }) => {
   if (!isOpen) return null;
 
@@ -94,12 +96,30 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 <a href="tel:03000751574" className="font-bold text-[#002D72] text-sm">0300-0751574</a> or <a href="tel:03084311505" className="font-bold text-[#002D72] text-sm">0308-4311505</a>
               </div>
               <br />
-              <button
-                onClick={onClose}
-                className="bg-[#002D72] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xs hover:bg-[#001F52] transition-colors cursor-pointer"
-              >
-                Close Window
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                {onOpenGmailHub && (
+                  <button
+                    onClick={() => {
+                      onClose();
+                      onOpenGmailHub(
+                        formData.email,
+                        `HRC Booking Confirmation - ${ticketNumber}`,
+                        formData.plantCapacity
+                      );
+                    }}
+                    className="w-full sm:w-auto bg-[#EA4335] hover:bg-[#D93025] text-white px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xs transition-colors cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>Send Copy via Gmail</span>
+                  </button>
+                )}
+                <button
+                  onClick={onClose}
+                  className="w-full sm:w-auto bg-[#002D72] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xs hover:bg-[#001F52] transition-colors cursor-pointer"
+                >
+                  Close Window
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">

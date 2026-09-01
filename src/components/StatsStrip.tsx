@@ -47,8 +47,6 @@ export const StatsStrip: React.FC = () => {
 
   return (
     <section className="bg-[#00183F] border-y border-[#002D72] relative overflow-hidden font-sans">
-      {/* Background Subtle Blueprint Accent */}
-      <div className="absolute inset-0 blueprint-grid-dark opacity-15" />
       <div className="absolute top-0 left-0 w-24 h-1 bg-[#F4C400]" />
       <div className="absolute bottom-0 right-0 w-24 h-1 bg-[#C92323]" />
 

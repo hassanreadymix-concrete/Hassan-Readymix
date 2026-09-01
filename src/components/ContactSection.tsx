@@ -5,9 +5,10 @@ import { QuoteFormData } from '../types';
 interface ContactProps {
   initialEquipment?: string;
   initialMessage?: string;
+  onOpenGmailHub?: (recipient?: string, subject?: string, grade?: string) => void;
 }
 
-export const ContactSection: React.FC<ContactProps> = ({ initialEquipment, initialMessage }) => {
+export const ContactSection: React.FC<ContactProps> = ({ initialEquipment, initialMessage, onOpenGmailHub }) => {
   const [formData, setFormData] = useState<QuoteFormData>({
     fullName: '',
     companyName: '',
@@ -87,12 +88,22 @@ export const ContactSection: React.FC<ContactProps> = ({ initialEquipment, initi
               </div>
 
               <div className="p-4 bg-white border border-[#E8EDF3] rounded-xs flex items-start gap-4 shadow-xs">
-                <div className="w-10 h-10 rounded-xs bg-[#002D72] text-[#F4C400] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xs bg-[#EA4335] text-white flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
-                <div>
-                  <div className="text-[10px] font-mono-tech uppercase text-[#667085]">OFFICIAL INQUIRIES & ORDERS</div>
-                  <a href="mailto:hassanreadymix@gmail.com" className="text-sm sm:text-base font-bold text-[#061C3D] hover:text-[#002D72] transition-colors block">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <div className="text-[10px] font-mono-tech uppercase text-[#667085]">OFFICIAL INQUIRIES & ORDERS</div>
+                    {onOpenGmailHub && (
+                      <button
+                        onClick={() => onOpenGmailHub('hassanreadymix@gmail.com', 'Concrete Rate Inquiry for Lahore Project')}
+                        className="text-[10px] font-mono-tech font-bold bg-[#EA4335] hover:bg-[#D93025] text-white px-2 py-0.5 rounded-xs transition-colors cursor-pointer"
+                      >
+                        Open in Gmail
+                      </button>
+                    )}
+                  </div>
+                  <a href="mailto:hassanreadymix@gmail.com" className="text-sm sm:text-base font-bold text-[#061C3D] hover:text-[#002D72] transition-colors block mt-0.5">
                     hassanreadymix@gmail.com
                   </a>
                   <a href="mailto:readymixhassan@gmail.com" className="text-xs text-slate-500 hover:text-[#002D72] transition-colors block mt-0.5">

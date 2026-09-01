@@ -23,12 +23,33 @@ import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { ProductModal } from './components/ProductModal';
 import { QuoteModal } from './components/QuoteModal';
+import { GmailHubModal } from './components/GmailHubModal';
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
   const [quoteModalOpen, setQuoteModalOpen] = useState<boolean>(false);
   const [quotePrefillProduct, setQuotePrefillProduct] = useState<string>('HRC 3500 PSI High Performance RCC');
   const [quotePrefillMessage, setQuotePrefillMessage] = useState<string>('');
+
+  // Gmail Hub State
+  const [gmailHubOpen, setGmailHubOpen] = useState<boolean>(false);
+  const [gmailRecipient, setGmailRecipient] = useState<string>('');
+  const [gmailSubject, setGmailSubject] = useState<string>('');
+  const [gmailGrade, setGmailGrade] = useState<string>('');
+  const [gmailVolume, setGmailVolume] = useState<string>('');
+
+  const handleOpenGmailHub = (
+    recipient?: string,
+    subject?: string,
+    grade?: string,
+    volume?: string
+  ) => {
+    if (recipient) setGmailRecipient(recipient);
+    if (subject) setGmailSubject(subject);
+    if (grade) setGmailGrade(grade);
+    if (volume) setGmailVolume(volume);
+    setGmailHubOpen(true);
+  };
 
   const handleOpenQuoteModal = (productName?: string) => {
     if (productName) {
@@ -51,7 +72,10 @@ export default function App() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#F5F7FA] text-[#172033] font-sans selection:bg-[#F4C400] selection:text-[#001F52]">
       {/* Sticky Navigation Bar */}
-      <Navbar onOpenQuoteModal={() => handleOpenQuoteModal()} />
+      <Navbar
+        onOpenQuoteModal={() => handleOpenQuoteModal()}
+        onOpenGmailHub={() => handleOpenGmailHub()}
+      />
 
       {/* Main Content Sections */}
       <main className="flex-1">
@@ -77,7 +101,12 @@ export default function App() {
         <FeaturedPlantSystem onOpenQuoteModal={(name) => handleOpenQuoteModal(name)} />
 
         {/* 6. Concrete Batching & Sizing Calculator */}
-        <BatchingCalculator onTransferToQuote={handleTransferCalculatorToQuote} />
+        <BatchingCalculator
+          onTransferToQuote={handleTransferCalculatorToQuote}
+          onOpenGmailHub={(recipient, subject, grade, vol) =>
+            handleOpenGmailHub(recipient, subject, grade, vol)
+          }
+        />
 
         {/* 7. Why Industry Professionals Choose Us */}
         <WhyChooseUs />
@@ -98,6 +127,9 @@ export default function App() {
         <ContactSection
           initialEquipment={quotePrefillProduct}
           initialMessage={quotePrefillMessage}
+          onOpenGmailHub={(recipient, subject, grade) =>
+            handleOpenGmailHub(recipient, subject, grade)
+          }
         />
 
         {/* 13. Engineering FAQ Accordion */}
@@ -105,7 +137,10 @@ export default function App() {
       </main>
 
       {/* Comprehensive Corporate Footer */}
-      <Footer onOpenQuoteModal={() => handleOpenQuoteModal()} />
+      <Footer
+        onOpenQuoteModal={() => handleOpenQuoteModal()}
+        onOpenGmailHub={() => handleOpenGmailHub()}
+      />
 
       {/* Interactive Blueprint & Technical Specs Modal */}
       <ProductModal
@@ -120,6 +155,17 @@ export default function App() {
         onClose={() => setQuoteModalOpen(false)}
         prefillProduct={quotePrefillProduct}
         prefillMessage={quotePrefillMessage}
+        onOpenGmailHub={(rec, subj, gr) => handleOpenGmailHub(rec, subj, gr)}
+      />
+
+      {/* Official Gmail Workspace Hub Modal */}
+      <GmailHubModal
+        isOpen={gmailHubOpen}
+        onClose={() => setGmailHubOpen(false)}
+        initialRecipient={gmailRecipient}
+        initialSubject={gmailSubject}
+        initialGrade={gmailGrade}
+        initialVolume={gmailVolume}
       />
     </div>
   );
